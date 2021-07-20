@@ -1,6 +1,6 @@
 # Dictionary
 # Key Value Pair
-# IMMUTABLE :)
+# MUTABLE :)
 
 # numbers = set()
 # print(numbers, type(numbers))
