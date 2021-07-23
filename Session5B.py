@@ -54,4 +54,9 @@ while True:
 
 print("SHOPPING CART [{}] ".format(len(shopping_cart)))
 print("PLEASE PAY [\u20b9{}] ".format(total))
-print(shopping_cart)
+
+for item in shopping_cart:
+    print("~"*30)
+    print("{title}\n\u20b9{price} | {delivery}mins".format_map(item))
+    print("~"*30)
+    print()
