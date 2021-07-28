@@ -14,6 +14,8 @@
     5. Multiplicity
     6. Membership Testing
 
+    TEST THE ABOVE PROPERTIES ON ALL SEQUENCES AND UPDATE ME WITH RESULTS
+
 """
 
 """
@@ -87,3 +89,18 @@ print(10 in data4)
 print(100 in data4)
 
 print(200 not in data4)
+
+student = {
+    "roll": 101,
+    "name": "john",
+    "age": 30,
+    "email": "john@example.com",
+}
+
+# print(min(student))
+
+name = "John Watson"
+new_name = name * 3
+print(new_name)
+print("John" in new_name)
+print("john" in new_name)
