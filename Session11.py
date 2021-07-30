@@ -47,3 +47,37 @@
 
 
 """
+# Empty List for Transactions
+transactions = []
+fix_amount = 0
+
+def set_fix_amount(amount):
+    fix_amount = amount
+    print("We have Set a Fix Amount of \u20b9", fix_amount)
+
+
+def show_welcome_message():
+    print("~~~~~~~~~~~~~~~~~~~~~~~")
+    print("Welcome to CredManager")
+    print("~~~~~~~~~~~~~~~~~~~~~~~")
+    print("Please Read the Instruction Menu and Enter Your Choice")
+    print("[1] Enter Fixed Minimum Amount Payable Every Month")
+    print("[2] Transact Any Amount")
+    print("[3] Make a Payment. (Fixed Amount will be deducted automatically)")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+
+def make_choice():
+    choice = int(input("Enter Your Choice: "))
+    if choice == 1:
+        amount = int(input("Enter a Fix Amount to be paid every month: "))
+        set_fix_amount(amount)
+
+
+def main():
+    show_welcome_message()
+    make_choice()
+
+
+if __name__ == '__main__':
+    main()
