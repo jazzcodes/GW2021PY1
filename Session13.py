@@ -12,8 +12,19 @@ class Song:
         self.artist = artist
         self.duration = duration
 
+    def show_song(self):
+        print("{name}\t{artist}\t{duration}".format_map(vars(self)))
+
+    def __str__(self):
+        return "{name}\n{artist}\t{duration}\n".format_map(vars(self))
+
+
+
 
 class LinkedList:
+
+    size = 0
+    idx = 0
 
     def __init__(self):
         self.head = None
@@ -21,9 +32,13 @@ class LinkedList:
 
     def append(self, object):
 
+        LinkedList.size += 1
+
         if self.head is None:
             self.head = object
             self.tail = object
+            # object.index = LinkedList.idx
+            # LinkedList.idx += 1
             print("OBJECT ADDED AS HEAD AND TAIL")
         else:
             # let the next object of tail be the object which we are adding
@@ -52,12 +67,19 @@ class LinkedList:
         temporary = self.tail
 
         while True:
-            print(vars(temporary))
+            # print(vars(temporary))
+            # temporary.show_song()
+            print(temporary)
             temporary = temporary.previous
 
             if temporary is self.tail:
                 break
 
+    def length(self):
+        return LinkedList.size
+
+    def sort(self, reverse=False):
+        pass
 
 def main():
 
@@ -89,5 +111,9 @@ def main():
     print("~~~~~~~~~~~~~~~~")
     play_list.iterate_backward()
 
+    print("Lenth of LinkedList:", play_list.length())
+
 if __name__ == '__main__':
     main()
+
+# Assignment: Implement Bubble Sort on LinkedList :)
