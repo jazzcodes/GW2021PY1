@@ -31,6 +31,8 @@ def main():
     dish4 = Dish("Burger", 50, 1)
     dish5 = Dish("Noodles", 150, 1)
 
+    dish6 = Dish("Fries", 80, 1)
+
     # menu = []
     # menu.append(dish1)
     # menu.append(dish2)
@@ -55,6 +57,14 @@ def main():
 
     dish = menu.get_object(2)
     print("DISH OBJECT DETAILS:", dish)
+
+    # menu.remove_last()
+    # menu.append(dish6)
+
+    # menu.remove(2)
+
+    menu.remove_first()
+    menu.iterate_forward()
 
     # cart = LinkedList()
     # print(vars(cart))

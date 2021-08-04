@@ -80,10 +80,43 @@ class LinkedList:
 
 
     def remove_first(self):
-        pass
+        first_object = self.head
+        self.head = first_object.next
+        self.head.previous = self.tail
+        self.tail.next = self.head
+
+        del first_object
+
+        # self.update_indexes(0)
 
     def remove_last(self):
-        pass
+
+        LinkedList.size -= 1
+        LinkedList.idx -= 1
+
+        last_object = self.tail
+        self.tail = last_object.previous
+        self.tail.next = self.head
+        self.head.previous = self.tail
+
+        del last_object
 
     def remove(self, index):
+
+        if index == 0:
+            self.remove_first()
+        elif index == LinkedList.size-1:
+            self.remove_last()
+        else:
+            object_to_delete = self.get_object(index)
+            object_to_delete.previous.next = object_to_delete.next
+            object_to_delete.next.previous = object_to_delete.previous
+
+            del object_to_delete
+
+            # self.update_indexes(index)
+
+        # Assignment -> Manage Indexing i.e. update indexes of the elements afterwardss
+
+    def update_indexes(self, start_index):
         pass
