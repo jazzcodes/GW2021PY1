@@ -120,3 +120,6 @@ class LinkedList:
 
     def update_indexes(self, start_index):
         pass
+
+    def insert(self, index):
+        pass
