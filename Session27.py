@@ -63,7 +63,7 @@ class DB:
 
 
     def delete_document(self):
-        document = self.db.collection('students-py').document('3').delete()
+        self.db.collection('students-py').document('3').delete()
         print("Document Deleted")
 
 
