@@ -4,6 +4,11 @@
     For a detailed exploration -> https://flask.palletsprojects.com/en/2.0.x/
     -> Choose the path -> Django For career in Web Dev
     -> Choose the path -> numpy/pandas/matplotlib/sklearn .... in Data Science
+
+    Use ngrok for exposing web app to public
+    https://ngrok.com/docs
+
+    command -> ngrok http 5000
 """
 
 # from flask import Flask

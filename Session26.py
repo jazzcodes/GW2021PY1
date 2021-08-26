@@ -43,6 +43,12 @@ class DB:
         self.collection.insert_one(document)
         print("Document Inserted")
 
+    def insert_operation(self, collection, document):
+        # Select the Collection in which you wish to work
+        self.collection = self.db[collection]
+        self.collection.insert_one(document)
+        print("Document Inserted")
+
     def fetch_collections(self):
         print("Fetching Collections from DB")
         for collection in self.collections:
