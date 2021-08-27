@@ -58,8 +58,8 @@ class DB:
         print("Fetching Documents from", collection_name)
         self.collection = self.db[collection_name]
         documents = self.collection.find()
-        for document in documents:
-            print(document)
+        # for document in documents:
+        #     print(document)
             # print(type(document)) # DataType -> Dictionary
         return documents
 
@@ -73,6 +73,12 @@ class DB:
         for document in documents:
             print(document)
             # print(type(document)) # DataType -> Dictionary
+
+    def validate_document_in_collection(self, collection_name, query):
+        self.collection = self.db[collection_name]
+        documents = self.collection.find(query)
+        return documents.count()
+
 
     def delete_document_from_collection(self, collection_name, roll_number):
         query = {"roll": roll_number}
@@ -105,7 +111,10 @@ def main():
     # my_db.fetch_documents_in_collection_with_condition(collection_name="students", roll_number=1)
     # my_db.delete_document_from_collection(collection_name="students", roll_number=1)
 
-    my_db.update_document_in_collection(collection_name="students", roll_number=1)
+    # my_db.update_document_in_collection(collection_name="students", roll_number=1)
+    query = {"email": "john@example.com", "password": "john123"}
+    count = my_db.validate_document_in_collection('users', query=query)
+    print(count)
 
 if __name__ == '__main__':
     main()

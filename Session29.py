@@ -43,6 +43,17 @@ def register_user_and_save_in_db():
 
     return render_template("success.html")
 
+@app.route("/auth", methods=["POST"])
+def authenticate_user():
+
+    user = {
+        "email": request.form['email'],
+        "password": request.form['password']
+    }
+
+    # Hashing the Password
+    user['password'] = hashlib.sha256(user['password'].encode()).hexdigest()
+
 @app.route("/users")
 def fetch_all_users():
     users = my_db.fetch_documents_in_collection(collection_name="users")
