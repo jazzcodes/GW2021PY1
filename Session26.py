@@ -77,7 +77,12 @@ class DB:
     def validate_document_in_collection(self, collection_name, query):
         self.collection = self.db[collection_name]
         documents = self.collection.find(query)
-        return documents.count()
+        return documents
+
+    def delete_document(self, collection_name, query):
+        self.collection = self.db[collection_name]
+        result = self.collection.delete_one(query)
+        return result
 
 
     def delete_document_from_collection(self, collection_name, roll_number):
@@ -112,9 +117,9 @@ def main():
     # my_db.delete_document_from_collection(collection_name="students", roll_number=1)
 
     # my_db.update_document_in_collection(collection_name="students", roll_number=1)
-    query = {"email": "john@example.com", "password": "john123"}
-    count = my_db.validate_document_in_collection('users', query=query)
-    print(count)
+    query = {"email": "john@example.com", "password": "john@123"}
+    documents = my_db.validate_document_in_collection('users', query=query)
+    print(documents.count())
 
 if __name__ == '__main__':
     main()

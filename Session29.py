@@ -54,12 +54,30 @@ def authenticate_user():
     # Hashing the Password
     user['password'] = hashlib.sha256(user['password'].encode()).hexdigest()
 
+    query = {"email": user['email'], "password": user['password']}
+    documents = my_db.validate_document_in_collection('users', query=query)
+
+    if documents.count() == 1:
+        return render_template("home.html", email=user["email"])
+    else:
+        return render_template("error.html", message="Invalid Credentials")
+
 @app.route("/users")
 def fetch_all_users():
     users = my_db.fetch_documents_in_collection(collection_name="users")
     print("users:", users)
     print("type(users):", type(users))
     return render_template("users.html", result=users)
+
+
+@app.route("/delete/<email>")
+def delete_user(email):
+    query = {"email": email}
+    result = my_db.delete_document(collection_name="users", query=query)
+    if result.deleted_count > 0:
+        return render_template("success.html", message="{} Deleted Successfully".format(email))
+    else:
+        return render_template("error.html", message="{} Not Deleted Successfully".format(email))
 
 def main():
     app.run()
