@@ -61,6 +61,7 @@ class DB:
         for document in documents:
             print(document)
             # print(type(document)) # DataType -> Dictionary
+        return documents
 
     def fetch_documents_in_collection_with_condition(self, collection_name, roll_number):
         print("Fetching Documents from", collection_name)
